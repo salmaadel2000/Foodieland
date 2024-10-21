@@ -1,0 +1,43 @@
+<nav class="navbar navbar-expand-lg">
+    <div class="container">
+        <a class="navbar-brand" routerLink="/blank/home" routerLinkActive="active">
+            <img src="assets/images/Foodieland.png" alt="Foodieland Logo" />
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <!-- Links -->
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/blank/home" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/blank/recipes" routerLinkActive="active">Recipes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/blank/blog" routerLinkActive="active">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/blank/fav-recipes" routerLinkActive="active">Favourite Recipes</a>
+                </li>
+            </ul>
+            <!-- Icons and Sign-Out -->
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link sign-out" href="#">Sign Out</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fa-brands fa-twitter"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fa-brands fa-instagram"></i></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+  </nav>
+  

@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+// Solid Color Variables
+$primary-color: #E7FAFE;
+$dark-color: #000;
+
+// Gradient Background Variables
+$gradient-black: linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.05) 100%);
+$gradient-orange: linear-gradient(180deg, rgba(240, 158, 0, 0.00) 0%, rgba(240, 158, 0, 0.10) 100%);
+$gradient-red: linear-gradient(180deg, rgba(204, 38, 27, 0.00) 0%, rgba(204, 38, 27, 0.10) 100%);
+$gradient-green: linear-gradient(180deg, rgba(108, 198, 63, 0.00) 0%, rgba(108, 198, 63, 0.10) 100%);
+
+// Font
+$font-family: 'Inter', sans-serif;
