@@ -1,0 +1,55 @@
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button *ngFor="let item of carouselItems; let i = index" type="button" 
+              [attr.data-bs-target]="'#carouselExampleIndicators'" 
+              [attr.data-bs-slide-to]="i" 
+              [class.active]="i === 0" 
+              aria-current="true" 
+              [attr.aria-label]="'Slide ' + (i + 1)"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item" *ngFor="let item of carouselItems; let i = index" [class.active]="i === 0">
+        <div class="slider-text">
+          <span class="paper-container">
+            <img [src]="item.image" class="paper">
+            <p class="paper-desc">{{ item.title }}</p>
+          </span>
+          <div class="hero-part">
+            <h1 class="text-spicy">{{ item.title }}</h1>
+            <p class="para-spicy">{{ item.description }}</p>
+            <div class="items">
+              <span class="item">
+                <img src="assets/images/Timer.png">
+                <p>{{ item.time }}</p>
+              </span>
+              <span class="item">
+                <img src="assets/images/ForkKnife.png">
+                <p>{{ item.mainIngredient }}</p>
+              </span>
+            </div>
+          </div>
+          <div class="detail-rec">
+            <span class="detail-rec-profile">
+              <img src="assets/images/Ellipse 2.png">
+              <div class="cheif-info">
+                <h5 class="name">{{ item.chefName }}</h5>
+                <p class="date">{{ item.date }}</p>
+              </div>
+            </span>
+          </div>
+        </div>
+        <div class="slider-img">
+          <img [src]="item.image" class="d-block w-100" alt="{{ item.title }}">
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+  

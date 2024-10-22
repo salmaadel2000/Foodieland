@@ -23,10 +23,7 @@
                 </li>
             </ul>
             <!-- Icons and Sign-Out -->
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link sign-out" routerLink="/auth/login" (click)="logout();">Sign Out</a>
-                </li>                
+            <ul class="navbar-nav ms-auto">            
                 <li class="nav-item">
                     <a class="nav-link" href="#"><i class="fa-brands fa-facebook-f"></i></a>
                 </li>
@@ -36,6 +33,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#"><i class="fa-brands fa-instagram"></i></a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link sign-out ms-3" routerLink="/auth/login" (click)="logout();">Sign Out</a>
+                </li>    
             </ul>
         </div>
     </div>
