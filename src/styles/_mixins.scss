@@ -1,2 +1,28 @@
+@mixin heading {
+  color: $dark-color;
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: -2.56px;
+}
 
-  
+@mixin main-btn($padding: 16px) {
+  padding: $padding;
+  border-radius: 16px;
+  background: $dark-color;
+  color: white;
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    background: darken(#000, 10%);
+  }
+}
+
+@mixin heading-title {
+  color: $gray-color;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 400;
+}

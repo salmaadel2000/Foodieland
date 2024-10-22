@@ -1,0 +1,105 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+.login-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 122px);
+    .title-box {
+        .title {
+            @include heading;
+        }
+
+        .heading-title {
+            @include heading-title;
+
+            .Sign-up {
+                font-size: 21px;
+                color: $blue-color;
+                font-weight: 500;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .img-container {
+        border-radius: 30px;
+        background: $gradient-blue;
+        display: flex;
+        align-items: end;
+        justify-content: center;
+    }
+
+    .form {
+        .form-label {
+            color: $gray-color;
+            font-size: 12px;
+            font-weight: 500;
+            text-transform: uppercase;
+            padding-inline-start: 4px;
+        }
+
+        .form-control {
+            height: 60px;
+            border-radius: 16px;
+            border: 1px solid rgba(0, 0, 0, 0.10);
+
+            &:active,
+            &:focus {
+                border: 1px solid $blue-color;
+                box-shadow: 0 0 5px rgba(171, 220, 231, 0.5);
+            }
+        }
+
+        .btn-container {
+            margin-top: 48px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .btn-login {
+                @include main-btn(12px);
+                width: 50%;
+            }
+        }
+    }
+
+    .alert {
+        margin-top: 7px;
+        font-weight: bold;
+        background-color: #f8d7da;
+        color: $error-color;
+        border-radius: 16px;
+        padding: 11px;
+    }
+}
+
+@media(max-width:988px){
+    .login-container{
+        height: 100%;
+        margin-block-start: 128px;
+        .img-container {
+            display: none;
+        }
+        .title-box {
+            .heading-title {
+              .Sign-up {
+                font-size: 15px;
+                color: $blue-color;
+                font-weight: 500;
+                cursor: pointer;
+              }
+            }
+          }
+          .form{
+            border-radius: 30px;
+            background: $gradient-blue;
+            padding-block-end: 24px;
+            width: 100%;
+            margin: auto;
+        }
+    } 
+
+}
