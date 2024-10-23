@@ -1,0 +1,38 @@
+@import '../../../../../styles/variables';
+@import '../../../../../styles/mixins';
+
+
+.categories {
+  .category-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+
+    .category-card {
+      width: 100%;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      transition: transform 0.3s;
+      background-image: $gradient-black; // Use the desired gradient variable here
+
+      &:hover {
+        transform: scale(1.05);
+      }
+
+      .category-img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+      }
+
+      .category-name {
+        margin-top: 10px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #333;
+      }
+    }
+  }
+}
