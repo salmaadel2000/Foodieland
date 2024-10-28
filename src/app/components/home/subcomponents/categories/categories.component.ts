@@ -9,12 +9,12 @@ import { CommonModule } from '@angular/common';
 })
 export class CategoriesComponent {
   categories = [
-    { name: 'Category 1', image: 'assets/images/car1.png', gradient: 'gradient-black' },
-    { name: 'Category 2', image: 'assets/images/car2.png', gradient: 'gradient-green' },
-    { name: 'Category 3', image: 'assets/images/car3.png', gradient: 'gradient-red' },
-    { name: 'Category 4', image: 'assets/images/car4.png', gradient: 'gradient-orange' },
-    { name: 'Category 5', image: 'assets/images/car5.png', gradient: 'gradient-black' },
-    { name: 'Category 6', image: 'assets/images/car6.png', gradient: 'gradient-black' }
+    { name: 'Breakfast', image: 'assets/images/car1.png', gradient: 'gradient-black' },
+    { name: 'Vegan', image: 'assets/images/car5.png', gradient: 'gradient-green' },
+    { name: 'Meat', image: 'assets/images/car4.png', gradient: 'gradient-red' },
+    { name: 'Dessert', image: 'assets/images/car3.png', gradient: 'gradient-orange' },
+    { name: 'Lunch', image: 'assets/images/car2.png', gradient: 'gradient-black' },
+    { name: 'Chocolate', image: 'assets/images/car6.png', gradient: 'gradient-black' }
   ];
   
   getGradient(gradient: string) {

@@ -9,15 +9,15 @@
         align-items: center;
         justify-content: center;
         margin-block-start: 40px;
-
+        height: 640px;
         .slider-img {
             width: 38%;
-            height: 640px;
-
+            height: 100%;
             img {
                 border-top-right-radius: 50px;
                 border-bottom-right-radius: 50px;
                 height: 100%;
+                object-fit: cover;
             }
         }
 
@@ -27,7 +27,7 @@
             width: 40%;
             border-top-left-radius: 50px;
             border-bottom-left-radius: 50px;
-            padding-block: 55px;
+            padding-block: 20px;
             padding-inline-start: 50px;
 
             .paper-container {
@@ -161,6 +161,7 @@
 @media (max-width:670px) {
     .carousel-item {
         .carousel-main {
+            height: 600px;
             .slider-img {
                 display: none;
             }
@@ -210,14 +211,15 @@
                 margin-block-start: 20px;
                 .detail-rec-profile{
                     justify-content: flex-start;
-                
+                    align-items: center;
                     .cheif-info{
-                        margin-block-end: 20px;
+                        
                     }
                 }
                 
                 .show-details{
-                 margin-inline-start: 45px;
+                 display: block;
+                 margin: 0 auto;
                 }
               }
             }

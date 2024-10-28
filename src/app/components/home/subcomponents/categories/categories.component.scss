@@ -1,37 +1,94 @@
 @import '../../../../../styles/variables';
 @import '../../../../../styles/mixins';
 
-
 .categories {
-  .category-item {
+  margin-block-start: 100px;
+
+  .categories-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-block-end: 80px;
+
+    h1 {
+      @include heading;
+      font-size: 48px;
+    }
+
+    .categories-btn {
+      @include main-btn;
+      background-color: $primary-color;
+      color: $dark-color;
+      font-weight: 600;
+    }
+  }
+
+  .categories-items {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 20px;
-
     .category-card {
       width: 100%;
-      padding: 20px;
       border-radius: 10px;
       text-align: center;
-      transition: transform 0.3s;
-      background-image: $gradient-black; // Use the desired gradient variable here
-
-      &:hover {
-        transform: scale(1.05);
-      }
+      background-image: $gradient-black;
+      border-radius: 30px;
+      cursor: pointer;
 
       .category-img {
-        max-width: 100%;
-        height: auto;
-        border-radius: 10px;
+        width: 100px;
+        height: 100px;
+        transition: all 0.3s;
+
+        &:hover {
+          transform: scale(1.05);
+          filter: drop-shadow(4px 4px 8px rgba(0, 0, 0, 0.5));
+        }
       }
 
       .category-name {
-        margin-top: 10px;
-        font-size: 1.5rem;
-        font-weight: bold;
-        color: #333;
+        color: #000;
+        text-align: center;
+        font-size: 18px;
+        font-weight: 600;
+        letter-spacing: -0.36px;
+        padding-block: 30px;
+      }
+    }
+  }
+}
+
+@media (max-width:1000px) {
+  .categories {
+    max-width: 100%;
+
+    .categories-items {
+      .category-card {
+        .category-img {
+          width: 62px;
+          height: 67px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width:760px) {
+  .categories {
+    margin-block-start: 30px;
+
+    .categories-title {
+      flex-direction: column;
+      margin-block-end: 80px
+    }
+
+    .categories-items {
+      .category-card {
+        margin-block: 20px;
+        .category-img {
+          width: 100px;
+          height: 100px;
+        }
       }
     }
   }

@@ -14,6 +14,7 @@ export class AuthService {
       const userCredential = await signInWithEmailAndPassword(this.auth, email, password);
       const token = userCredential.user.uid; 
       localStorage.setItem('token', token); 
+      localStorage.setItem('favorites',JSON.stringify([]));
       this.router.navigate(['/blank/fav-recipes']);
       return null;
     } catch (err) {
@@ -38,7 +39,7 @@ export class AuthService {
   async logout(): Promise<void> {
     try {
       await signOut(this.auth);
-      localStorage.removeItem('token'); 
+      localStorage.clear()
       this.router.navigate(['/auth/login']);
     } catch (err) {
       console.error('Logout Error:', this.getErrorMessage(err));

@@ -1,0 +1,39 @@
+<div class="simpleRecipes container">
+    <div class="simpleRecipes-title">
+      <h1>Simple and Tasty Recipes</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Enim ad minim veniam.</p>
+    </div>
+    <div class="simpleRecipes-main row row-cols-1 row-cols-md-2 row-cols-lg-3 g-2 g-lg-3 justify-content-center">
+      <ng-container *ngFor="let item of recipesItems; let i = index">
+        <div class="col">
+          <div class="card recipe-card">
+            <div class="position-relative">
+              <img [src]="item.image" class="card-img-top" alt="{{ item.title }} Recipe Image">
+              <button class="heart-btn" (click)="toggleHeart(item)">
+                <i class="fas fa-heart" [ngStyle]="{'color': item.isHearted ? '#DBE2E5' : '#FF6363'}"></i>
+              </button>
+            </div>
+            <div class="card-body text-start">
+              <h5 class="card-title">{{ item.title }}</h5>
+              <div class="d-flex flex-start align-items-center text-muted">
+                <div class="me-3">
+                  <img src="assets/images/Timer.png"><p class="card-item">{{ item.time }}</p>
+                </div>
+                <div>
+                  <img src="assets/images/ForkKnife.png"><p class="card-item">{{ item.mainIngredient }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Add the static image in the loop -->
+        <ng-container *ngIf="i === 4">
+          <div class="col">
+            <img src="assets/images/foodGroup.png" class="static-img" alt="Food Group Image">
+          </div>
+        </ng-container>
+      </ng-container>
+    </div>
+  </div>
+  

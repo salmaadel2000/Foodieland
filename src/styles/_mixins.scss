@@ -14,10 +14,6 @@
   color: white;
   border: none;
   cursor: pointer;
-
-  &:hover {
-    background: darken(#000, 10%);
-  }
 }
 
 @mixin heading-title {

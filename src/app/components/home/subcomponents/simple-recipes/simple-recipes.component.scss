@@ -1,0 +1,91 @@
+@import '../../../../../styles/variables';
+@import '../../../../../styles/mixins';
+
+.simpleRecipes {
+    margin-block-start: 180px;
+
+    &-title {
+        text-align: center;
+        margin-block-end: 70px;
+
+        h1 {
+            @include heading;
+            margin-block-end: 25px;
+        }
+
+        p {
+            @include heading-title;
+            text-align: center;
+            width: 70%;
+            display: block;
+            margin: 0 auto;
+        }
+    }
+
+    .recipe-card {
+        border-radius: 30px;
+        overflow: hidden;
+        border: 0px;
+        background: $gradient-blue;
+        padding: 0px;
+        .card-img-top {
+            border-top-left-radius: 30px;
+            border-top-right-radius: 30px;
+            height: 364px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .heart-btn {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: none;
+            border: none;
+            outline: none;
+            font-size: 24px;
+            color: #DBE2E5;
+            cursor: pointer;
+            background: white;
+            padding: 10px 16px;
+            border-radius: 100%;
+        }
+
+        .card-body {
+            padding: 24px;
+            height: 153px;
+            .card-item {
+                display: inline-block;
+                color: $gray-color;
+                font-size: 14px;
+                font-weight: 500;
+            }
+        }
+
+        .card-title {
+            font-size: 24px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 32px;
+            margin-block-end: 24px;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            overflow: hidden; 
+            text-overflow: ellipsis;
+        }
+
+        .bi-heart-fill {
+            transition: color 0.3s;
+        }
+
+        .text-muted i {
+            margin-right: 4px;
+        }
+    }
+    .static-img{
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+}
