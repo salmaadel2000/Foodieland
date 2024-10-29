@@ -1,0 +1,69 @@
+@import '../../../../../styles/variables';
+@import '../../../../../styles/mixins';
+
+.instgram {
+    margin-block-start: 230px;
+
+    .title {
+        margin: auto 0px;
+        text-align: center;
+        margin-block-end: 80px;
+
+        h1 {
+            @include heading;
+            margin-block-end: 24px;
+
+        }
+
+        p {
+            @include heading-title;
+            width: 60%;
+            margin: auto;
+        }
+    }
+.hero-part{
+    background: $gradient-blue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    .instgram-card {
+        img {
+            width: 100%;
+        }
+
+        .mainImg {
+            height: 290px;
+            object-fit: cover;
+        }
+    }
+    button{
+        @include main-btn;
+        margin-block-start: 114px;
+        margin-block-end: 80px;
+        .icon{
+            font-size: 22px;
+            margin-inline-start: 16px;
+        }
+    }
+}
+}
+@media (max-width: 760px) {
+    .instgram{
+        margin-block-start: 40px;
+        .title{
+            margin-block-end: 20px;
+            h1{
+                margin-block-end: 14px;
+            }
+            p{
+                width: 100%;
+            }
+        }
+        .hero-part{
+            button{
+              margin-block: 20px;
+            }
+        }
+    }
+}

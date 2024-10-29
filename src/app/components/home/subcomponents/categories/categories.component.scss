@@ -34,18 +34,16 @@
       background-image: $gradient-black;
       border-radius: 30px;
       cursor: pointer;
-
+      &:hover .category-img {
+        transform: scale(1.05);
+        filter: drop-shadow(4px 4px 8px rgba(0, 0, 0, 0.5));
+      }
+    
       .category-img {
         width: 100px;
         height: 100px;
         transition: all 0.3s;
-
-        &:hover {
-          transform: scale(1.05);
-          filter: drop-shadow(4px 4px 8px rgba(0, 0, 0, 0.5));
-        }
       }
-
       .category-name {
         color: #000;
         text-align: center;
@@ -60,8 +58,6 @@
 
 @media (max-width:1000px) {
   .categories {
-    max-width: 100%;
-
     .categories-items {
       .category-card {
         .category-img {
@@ -75,11 +71,11 @@
 
 @media (max-width:760px) {
   .categories {
-    margin-block-start: 30px;
+    margin-block-start: 20px;
 
     .categories-title {
       flex-direction: column;
-      margin-block-end: 80px
+      margin-block-end: 20px
     }
 
     .categories-items {

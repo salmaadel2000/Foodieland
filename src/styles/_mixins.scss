@@ -5,7 +5,12 @@
   font-weight: 600;
   line-height: normal;
   letter-spacing: -2.56px;
+
+  @media (max-width: 760px) {
+    font-size: 40px;
+  }
 }
+
 
 @mixin main-btn($padding: 16px) {
   padding: $padding;
@@ -20,4 +25,20 @@
   color: $gray-color;
   font-size: 16px;
   font-weight: 400;
+}
+@mixin input-styles {
+  width: 100%;
+  max-width: 400px;
+  margin-top: 10px;
+  padding: 17px;
+  border: 1px solid $gray-color;
+  font-size: 14px; 
+  font-weight: 500;
+  border-radius: 24px;
+  color: $gray-color;
+
+  &:focus,
+  &:active {
+      box-shadow: none; // Remove box-shadow on focus/active
+  }
 }

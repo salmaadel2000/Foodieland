@@ -1,39 +1,59 @@
-<div class="simpleRecipes container">
-    <div class="simpleRecipes-title">
-      <h1>Simple and Tasty Recipes</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Enim ad minim veniam.</p>
-    </div>
-    <div class="simpleRecipes-main row row-cols-1 row-cols-md-2 row-cols-lg-3 g-2 g-lg-3 justify-content-center">
-      <ng-container *ngFor="let item of recipesItems; let i = index">
-        <div class="col">
-          <div class="card recipe-card">
-            <div class="position-relative">
-              <img [src]="item.image" class="card-img-top" alt="{{ item.title }} Recipe Image">
-              <button class="heart-btn" (click)="toggleHeart(item)">
-                <i class="fas fa-heart" [ngStyle]="{'color': item.isHearted ? '#DBE2E5' : '#FF6363'}"></i>
-              </button>
-            </div>
-            <div class="card-body text-start">
-              <h5 class="card-title">{{ item.title }}</h5>
-              <div class="d-flex flex-start align-items-center text-muted">
-                <div class="me-3">
-                  <img src="assets/images/Timer.png"><p class="card-item">{{ item.time }}</p>
-                </div>
-                <div>
-                  <img src="assets/images/ForkKnife.png"><p class="card-item">{{ item.mainIngredient }}</p>
-                </div>
-              </div>
-            </div>
-          </div>
+<section class="container">
+    <div class="simpleRecipes ">
+        <div class="simpleRecipes-title">
+            <h1>Simple and Tasty Recipes</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Enim ad minim veniam.</p>
         </div>
-  
-        <!-- Add the static image in the loop -->
-        <ng-container *ngIf="i === 4">
-          <div class="col">
-            <img src="assets/images/foodGroup.png" class="static-img" alt="Food Group Image">
-          </div>
-        </ng-container>
-      </ng-container>
+        <div class="simpleRecipes-main row row-cols-1 row-cols-md-2 row-cols-lg-3 g-2 g-lg-4 justify-content-center">
+            <ng-container *ngFor="let item of recipesItems; let i = index">
+                <div class="col">
+                    <div class="card recipe-card">
+                        <div class="position-relative">
+                            <img [src]="item.image" class="card-img-top" alt="{{ item.title }} Recipe Image">
+                            <button class="heart-btn" (click)="toggleHeart(item)">
+                                <i class="fas fa-heart"
+                                    [ngStyle]="{'color': item.isHearted ? '#DBE2E5' : '#FF6363'}"></i>
+                            </button>
+                        </div>
+                        <div class="card-body text-start">
+                            <h5 class="card-title">{{ item.title }}</h5>
+                            <div class="d-flex flex-start align-items-center text-muted">
+                                <div class="me-3">
+                                    <img src="assets/images/Timer.png">
+                                    <p class="card-item">{{ item.time }}</p>
+                                </div>
+                                <div>
+                                    <img src="assets/images/ForkKnife.png">
+                                    <p class="card-item">{{ item.mainIngredient }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <ng-container *ngIf="i === 4">
+                    <div class="col">
+                        <img src="assets/images/foodGroup.png" class="static-img" alt="Food Group Image">
+                    </div>
+                </ng-container>
+            </ng-container>
+        </div>
     </div>
-  </div>
-  
+    <div class="canCheif row g-2 g-lg-4 justify-content-center">
+        <div class="textPart col-md-5">
+            <h1>Everyone can be a chef in their own kitchen</h1>
+            <p>Lorem ipsum dolor sit amet, consectetuipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Enim ad minim veniam.</p>
+            <button class="btn learn">
+                learn more
+            </button>
+        </div>
+        <div class="imgPart col-md-6 ">
+            <img src="/assets/images/cheif3.png" class="cheif" />
+            <img src="assets/images/car4.png" class="car4 food" />
+            <img src="assets/images/car5.png" class="car5 food" />
+            <img src="assets/images/tomatom.png" class="tomatom food" />
+            <img src="assets/images/onion.png" class="onion food" />
+        </div>
+    </div>
+    
+</section>

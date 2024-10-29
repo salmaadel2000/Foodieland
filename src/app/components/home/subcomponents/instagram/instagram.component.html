@@ -1,0 +1,18 @@
+<section class="instgram ">
+    <div class="title">
+        <h1>Check out foodieland on Instagram</h1>
+        <p>Lorem ipsum dolor sit amet, consectetuipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+            magna aliqut enim ad minim </p>
+    </div>
+    <div class="hero-part ">
+        <div class="container row row-cols-1 row-cols-md-2 row-cols-lg-4 g-2 g-lg-4  ">
+            <div class="col instgram-card" *ngFor="let foodImage of foodImages">
+                <img src="/assets/images/Top.png" alt="Top image" />
+                <img [src]="'/assets/images/' + foodImage" [alt]="foodImage" class="mainImg" />
+                <img src="/assets/images/Bottom.png" alt="Bottom image" />
+            </div>
+        </div>
+        <button class="btn d-flex align-items-center justify-content-center">Visit Our Instagram <i class="fab fa-instagram icon"></i>
+        </button>
+    </div>
+</section>
