@@ -54,8 +54,6 @@
 
         .card-body {
             padding: 24px;
-            height: 153px;
-
             .card-item {
                 display: inline-block;
                 color: $gray-color;
@@ -75,6 +73,7 @@
             -webkit-line-clamp: 2;
             overflow: hidden;
             text-overflow: ellipsis;
+            height: 65px;
         }
 
         .bi-heart-fill {

@@ -1,14 +1,16 @@
-<section class="search container">
+<section class="search ">
+    <div class="search-part container">
     <div class="search-title">
         <h1>Search for delicious recipe to make your day</h1>
         <div>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Enim ad minim veniam.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Enim ad minim veniam.</p>
             <input type="text" placeholder="Search recipes" [(ngModel)]="searchTerm" (ngModelChange)="onSearchChange()"
                 class="form-control mt-3">
         </div>
     </div>
 
-    <div *ngIf="noResults" class="error-message">No matches found.</div> 
+    <div *ngIf="noResults" class="error-message">No matches found.</div>
 
     <div class="search-main row row-cols-1 row-cols-md-2 row-cols-lg-3 g-2 g-lg-4 justify-content-center">
         <ng-container *ngFor="let item of filteredRecipes; let i = index">
@@ -33,5 +35,22 @@
                 </div>
             </div>
         </ng-container>
+    </div>
+</div>
+    <div class="inbox  container">
+        <div class="inbox-title">
+            <h1>Deliciousness to your inbox</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Enim ad minim veniam.</p>
+        </div>
+        <div class="inbox-input">
+            <input type="text" placeholder="Your email address..." class="form-control mt-3">
+            <button class="btn">Subscribe</button>
+        </div>
+        <div class="inbox-img">
+        <img src="/assets/images/kisspng-salad.png" class="salad"/>
+        <img src="/assets/images/Photo-plate.png" class="egg"/>
+        <img src="/assets/images/rucola.png" class="rucola"/>
+        </div>
     </div>
 </section>

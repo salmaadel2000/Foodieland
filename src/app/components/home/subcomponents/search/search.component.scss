@@ -36,12 +36,14 @@
             padding: 0;
             transition: box-shadow 0.3s;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+
             &:hover {
-                box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); 
+                box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
                 cursor: pointer;
             }
+
             .card-img-top {
-              
+
                 height: 364px;
                 width: 100%;
                 object-fit: cover;
@@ -49,7 +51,6 @@
 
             .card-body {
                 padding: 24px;
-                height: 153px;
                 text-align: start;
 
                 .card-item {
@@ -68,6 +69,7 @@
                 display: -webkit-box;
                 -webkit-box-orient: vertical;
                 -webkit-line-clamp: 2;
+                height: 65px;
                 overflow: hidden;
                 text-overflow: ellipsis;
             }
@@ -85,31 +87,121 @@
     .col {
         margin-block-end: 40px;
     }
+
     .error-message {
-        color: #FF6363; 
+        color: #FF6363;
         font-size: 20px;
-        text-align: center; 
-        padding: 16px; 
+        text-align: center;
+        padding: 16px;
         font-weight: 600;
-        background-color: rgba(255, 0, 0, 0.1); 
-        border-radius: 8px; 
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+        background-color: rgba(255, 0, 0, 0.1);
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         transition: background-color 0.3s;
+
         &:hover {
-            background-color: rgba(255, 0, 0, 0.2); 
+            background-color: rgba(255, 0, 0, 0.2);
         }
     }
-    
-    
+
+    .inbox {
+        background: #E7F9FD;
+        border-radius: 60px;
+        margin-block-start: 160px;
+        position: relative;
+        overflow: hidden;
+        padding-block-end: 80px;
+
+        &-title {
+            text-align: center;
+            padding-block-end: 40px;
+            padding-block-start: 30px;
+
+
+            h1 {
+                @include heading;
+                margin-block-end: 25px;
+            }
+
+            p {
+                @include heading-title;
+                margin-block-end: 16px;
+                width: 70%;
+                margin: auto;
+            }
+        }
+
+        &-input {
+            position: relative;
+            width: fit-content;
+            margin: auto;
+
+            input {
+                @include input-styles;
+                font-size: 18px;
+                width: 480px;
+            }
+
+            button {
+                @include main-btn;
+                position: absolute;
+                top: 6px;
+                right: 17px;
+            }
+        }
+
+        &-img {
+            img {
+                position: absolute;
+            }
+
+            .salad {
+                bottom: -8px;
+            }
+
+            .egg {
+                bottom: 1px;
+                right: -13px
+            }
+
+            .rucola {
+                bottom: 51px;
+                right: 200px;
+            }
+        }
+    }
+
 }
+
 @media (max-width: 1200px) {
     .search {
         &-title {
             flex-direction: column;
-        
+
+        }
+
+        .inbox {
+            max-width: 100%;
+            border-radius: 0px;
+
+            &-img {
+                .rucola {
+                    display: none;
+                }
+
+                .salad {
+                    bottom: -83px;
+                    left: -140px;
+                }
+
+                .egg {
+                    bottom: -83px;
+                }
+            }
         }
     }
 }
+
 @media (max-width: 760px) {
     .search {
         margin-block-start: 20px;
@@ -117,6 +209,7 @@
         &-title {
             flex-direction: column;
             margin-block-end: 20px;
+
             p {
                 width: 100%;
             }
@@ -128,6 +221,17 @@
 
         .col {
             margin-block-end: 0;
+        }
+
+        .inbox {
+            padding-block-end: 39px;
+            margin-block-start: 47px;
+            &-title{
+               padding-block-end: 0px;
+            }
+            &-img {
+                display: none;
+            }
         }
     }
 }

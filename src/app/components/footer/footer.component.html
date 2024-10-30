@@ -1,1 +1,33 @@
-<p>footer works!</p>
+<footer class="footer  py-4">
+    <div class="row align-items-center container frist-part">
+        <!-- Logo and Description -->
+        <div class="col-md-5 text-start">
+            <a class="navbar-brand" routerLink="/blank/home" routerLinkActive="active">
+                <img src="assets/images/Foodieland.png" alt="Foodieland Logo" />
+            </a>
+            <p class="footer-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit,</p>
+        </div>
+
+        <!-- Navigation Links (Using Router Links) -->
+        <div class="col-md-7 text-center">
+            <ul class="list-inline m-0">
+                <li class="nav-item list-inline-item">
+                    <a class="nav-link" routerLink="/blank/home" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+                </li>
+                <li class="nav-item list-inline-item">
+                    <a class="nav-link" routerLink="/blank/recipes" routerLinkActive="active">Recipes</a>
+                </li>
+                <li class="nav-item list-inline-item">
+                    <a class="nav-link" routerLink="/blank/blog" routerLinkActive="active">Blog</a>
+                </li>
+                <li class="nav-item list-inline-item">
+                    <a class="nav-link" routerLink="/blank/fav-recipes" routerLinkActive="active">Favourite Recipes</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <hr>
+    <div class="text-part  text-center container">
+        <p class="text-muted small mb-2 ">© 2020 Flowbase. Powered by <a href="#" class="text-danger">Webflow</a></p>
+    </div>
+</footer>

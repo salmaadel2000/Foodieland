@@ -1,0 +1,61 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+.footer {
+      margin-block-start: 100px;
+      .frist-part{
+        margin: auto;
+      }
+      hr{
+        border: 1px solid #e5e5e5
+      }
+    .footer-logo {
+        font-family: 'Brush Script MT', cursive;
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+
+    .footer-description {
+        margin-block-start: 16px;
+        @include heading-title
+    }
+
+    .nav-link {
+        color: $dark-color;
+        font-weight: 500;
+        font-size: 1rem;
+        padding: 0;
+        margin-inline-end: 16px;
+        &.active {
+            font-weight: bold;
+        }
+    }
+
+    .social-icons a {
+        font-size: 1.25rem;
+        transition: color 0.3s;
+
+        &:hover {
+            color: #f05454;
+        }
+    }
+
+    .text-danger {
+        color: #f05454 !important;
+    }
+    .text-part{
+       padding-block: 48px;
+     p{
+        margin: 0px;
+     }
+    }
+}
+
+@media (max-width:700px) {
+    .footer{
+        margin-block-start: 20px;
+        .text-part {
+            padding-block: 10px;
+        }
+    }
+}
