@@ -4,11 +4,10 @@ import { SimpleRecipesComponent } from '../simple-recipes/simple-recipes.compone
 import { FormsModule } from '@angular/forms';
 import { Recipe } from '../../../../shared/interfaces/recipe.model';
 import { RecipesService } from '../../../../shared/services/recipes.service';
-
 @Component({
   selector: 'app-search',
   standalone: true,
-  imports: [CommonModule, FormsModule, SimpleRecipesComponent],
+  imports: [CommonModule, FormsModule, SimpleRecipesComponent ],
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.scss']
 })

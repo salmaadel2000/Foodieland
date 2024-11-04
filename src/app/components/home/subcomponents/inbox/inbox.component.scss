@@ -1,0 +1,110 @@
+@import '../../../../../styles/variables';
+@import '../../../../../styles/mixins';
+
+.inbox {
+    background: #E7F9FD;
+    border-radius: 60px;
+    margin-block-start: 160px;
+    position: relative;
+    overflow: hidden;
+    padding-block-end: 80px;
+
+    &-title {
+        text-align: center;
+        padding-block-end: 40px;
+        padding-block-start: 30px;
+
+
+        h1 {
+            @include heading;
+            margin-block-end: 25px;
+        }
+
+        p {
+            @include heading-title;
+            margin-block-end: 16px;
+            width: 70%;
+            margin: auto;
+        }
+    }
+
+    &-input {
+        position: relative;
+        width: fit-content;
+        margin: auto;
+
+        input {
+            @include input-styles;
+            font-size: 18px;
+            width: 480px;
+        }
+
+        button {
+            @include main-btn;
+            position: absolute;
+            top: 6px;
+            right: 17px;
+        }
+    }
+
+    &-img {
+        img {
+            position: absolute;
+        }
+
+        .salad {
+            bottom: -8px;
+            left: 1px
+        }
+
+        .egg {
+            bottom: 1px;
+            right: -13px
+        }
+
+        .rucola {
+            bottom: 51px;
+            right: 200px;
+        }
+    }
+}
+
+
+@media (max-width: 1200px) {
+   
+        .inbox {
+            max-width: 100%;
+            border-radius: 0px;
+
+            &-img {
+                .rucola {
+                    display: none;
+                }
+
+                .salad {
+                    bottom: -83px;
+                    left: -140px;
+                }
+
+                .egg {
+                    bottom: -83px;
+                }
+            }
+        }
+    
+}
+
+@media (max-width: 760px) {
+   
+        .inbox {
+            padding-block-end: 39px;
+            margin-block-start: 47px;
+            &-title{
+               padding-block-end: 0px;
+            }
+            &-img {
+                display: none;
+            }
+        }
+    
+}
