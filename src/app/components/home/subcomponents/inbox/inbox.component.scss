@@ -107,4 +107,25 @@
             }
         }
     
+
+
+}
+
+@media (max-width: 450px){
+   .inbox{
+    .inbox-title{
+        p{
+            width: 100%;
+        }
+    }
+    &-input {
+        input {
+            width: 300px;
+            font-size: 12px;
+        }
+        button {
+          padding: 12px;
+        }
+    }
+   } 
 }

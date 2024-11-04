@@ -254,6 +254,14 @@
         .vedio-part {
             width: 100%;
         }
+        .Nutrition{
+           .info{
+            .nut-des{
+                margin-block-start: 20px;
+                margin-block-end: 0px;
+            }
+           }
+        }
     }
 
     .Ingredients {
@@ -265,6 +273,25 @@
 
         .other-main {
             justify-content: flex-start;
+        }
+        .other{
+            .other-title{
+                margin-block: 15px
+            }
+        }
+        .Ingredient{
+            .selection {
+                margin-block-start: 20px !important;
+
+                .title-select {
+                    margin-block-end: 13px !important;
+                }
+            }
+        }
+    }
+    .recipes{
+        .final-text{
+            margin-block: 20px;
         }
     }
 }
