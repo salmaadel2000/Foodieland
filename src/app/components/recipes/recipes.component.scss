@@ -78,7 +78,7 @@
         }
 
         .info {
-            margin-block-start: 80px;
+            margin-block-start: 53px;
             background-color: $primary-color;
             border-radius: 30px;
             padding: 32px;
@@ -150,7 +150,7 @@
                             &:checked+.checkmark {
                                 background-color: #000;
                                 border-color: #000;
-
+                                  
                                 &::after {
                                     content: '✔';
                                     color: #fff;
@@ -167,6 +167,7 @@
                                 color: #ccc;
                                 text-decoration: line-through;
                             }
+                           
                         }
 
                         .checkmark {
@@ -184,6 +185,9 @@
                             &::after {
                                 content: '';
                                 display: none;
+                            }
+                            &:hover{
+                                cursor: pointer;
                             }
                         }
 

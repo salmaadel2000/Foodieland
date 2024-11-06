@@ -1,1 +1,83 @@
-<p>blog works!</p>
+<section class="container my-5 blog">
+    <h1 class="text-center  blog-title">Blog & Article</h1>
+    <p class="text-center  blog-para">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+  <div class="search-container ">
+    <input
+      type="text"
+      class="form-control  blog-search"
+      [(ngModel)]="searchTerm"
+      (keyup)="filterArticles()"
+      placeholder="Search articles..."
+    />
+    <button class="btn serch-btn">search</button>
+    </div>
+    <div class="row">
+      <div class="col-lg-8">
+        <div *ngIf="noResults" class="error-message">No matches found.</div>
+        <div *ngFor="let article of getCurrentPageArticles()" class="card mb-3">
+          <div class="row g-0">
+            <div class="col-md-4 img-container">
+              <img [src]="article.image" class=" img-cook" alt="...">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">{{ article.title }}</h5>
+                <p class="card-text">{{ article.description }}</p>
+                <span class="">
+                  <img [src]="article.profile" class="profile" alt="..."> <small class="author">{{ article.author }} </small>   <small class="date"> | {{ article.date }}</small>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="other col-md-4">
+        <h2 class="other-title">Tasty Recipes</h2>
+        <div class="other-main">
+          <div class="other-item">
+            <img src="/assets/images/food4.png">
+            <div class="other-details">
+              <h6>Chicken Meatball with Creamy Chees...</h6>
+              <p>By Andreas Paula</p>
+            </div>
+          </div>
+          <div class="other-item">
+            <img src="/assets/images/food2.png">
+            <div class="other-details">
+              <h6>Chicken Meatball with Creamy Chees...</h6>
+              <p>By Andreas Paula</p>
+            </div>
+          </div>
+          <div class="other-item">
+            <img src="/assets/images/food3.png">
+            <div class="other-details">
+              <h6>Chicken Meatball with Creamy Chees...</h6>
+              <p>By Andreas Paula</p>
+            </div>
+          </div>
+
+        </div>
+        <div class="main-img ">
+          <img src="/assets/images/foodGroup.png"/>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Pagination -->
+    <nav>
+      <ul class="pagination justify-content-center ">
+        <li class="page-item" [class.disabled]="currentPage === 1">
+          <a class="page-link" (click)="changePage(currentPage - 1)"><i class="fa-solid fa-arrow-left"></i></a>
+        </li>
+        <li class="page-item" *ngFor="let page of pages" [class.active]="page === currentPage">
+          <a class="page-link" (click)="changePage(page)">{{ page }}</a>
+        </li>
+        <li class="page-item" [class.disabled]="currentPage === pages.length">
+          <a class="page-link" (click)="changePage(currentPage + 1)"><i class="fa-solid fa-arrow-right"></i></a>
+        </li>
+      </ul>
+    </nav>
+    
+  </section>
+  <app-inbox></app-inbox>
+  

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Firestore, collection, collectionData, doc, docData, addDoc ,deleteDoc } from '@angular/fire/firestore';
+import { Firestore, collection, collectionData, doc, docData, addDoc, deleteDoc, query, where } from '@angular/fire/firestore';  // Add query and where here
 import { Auth } from '@angular/fire/auth'; 
 import { Observable } from 'rxjs';
 import { Recipe } from '../interfaces/recipe.model';
@@ -26,9 +26,9 @@ export class RecipesService {
   async removeFavoriteRecipe(docId: string) { 
     const userId = this.auth.currentUser?.uid;
     if (userId) {
-    const favRecipesCollection = collection(this.firestore, 'favRecipes');
-    const recipeDocRef = doc(favRecipesCollection, docId); 
-    return deleteDoc(recipeDocRef); 
+      const favRecipesCollection = collection(this.firestore, 'favRecipes');
+      const recipeDocRef = doc(favRecipesCollection, docId); 
+      return deleteDoc(recipeDocRef); 
     }
   }
 
@@ -44,6 +44,16 @@ export class RecipesService {
       throw new Error('User is not logged in.');
     }
   }
-  
-  
+
+  // Add this method to get favorite recipes
+  getFavoriteRecipes(): Observable<Recipe[]> {
+    const userId = this.auth.currentUser?.uid;
+    if (userId) {
+      const favRecipesCollection = collection(this.firestore, 'favRecipes');
+      const favRecipesQuery = query(favRecipesCollection, where('userId', '==', userId)); 
+      return collectionData(favRecipesQuery) as Observable<Recipe[]>;
+    } else {
+      throw new Error('User is not logged in.');
+    }
+  }
 }

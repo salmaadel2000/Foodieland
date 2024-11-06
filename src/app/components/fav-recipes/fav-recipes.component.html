@@ -1,1 +1,38 @@
-<p>fav-recipes works!</p>
+<section class="favoriteRecipes">
+    <img src="/assets/images/orange.png" class="orange bottom-orange">
+    <img src="/assets/images/Photo-plate.png" class="orange right-orange">
+    <img src="/assets/images/kisspng-salad.png" class="orange left-orange">
+<div class="hero-part container">
+    <div class="hero-part-title">
+      <h1>Favorite Recipes</h1>
+      <p>Your favorite recipes will be shown here.</p>
+    </div>
+  
+    <div class="row">
+
+        <div  *ngFor="let recipe of favoriteRecipes" class="col-md-4 recipe-card">
+          <img [src]="recipe.image" class="card-img-top" alt="recipe image">
+          <button class="heart-btn">
+            <i class="fas fa-heart"></i>
+          </button>
+          <div class="card-body">
+            <h5 class="card-title">{{ recipe.title }}</h5>
+            <div class="card-item">
+              <p>{{ recipe.description }}</p>
+              <div class="d-flex flex-start align-items-center text-muted">
+                <div class="me-3">
+                    <img src="assets/images/Timer.png">
+                    <p class="card-item">{{ recipe.time }}</p>
+                </div>
+                <div>
+                    <img src="assets/images/ForkKnife.png">
+                    <p class="card-item">{{ recipe.mainIngredient }}</p>
+                </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
