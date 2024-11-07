@@ -35,10 +35,8 @@ export class FavRecipesComponent implements OnInit {
     if (this.isAuthenticated) {
       this.recipesService.getFavoriteRecipes().subscribe(
         (recipes) => {
-          console.log(recipes);
+          console.log("Fetched favorite recipes with docId:", recipes);
           this.favoriteRecipes = recipes;
-
-        
         },
         (error) => {
           console.error('Error loading favorite recipes:', error);
@@ -46,21 +44,42 @@ export class FavRecipesComponent implements OnInit {
       );
     } 
   }
-
-  async removeHeart(recipe: Recipe):Promise<void> {
-    console.log(recipe)
-    console.log(this.isAuthenticated)
-    console.log(recipe.isHearted)
-    if (this.isAuthenticated && recipe.isHearted) {
-     console.log(recipe.docId)
-     await this.recipesService.removeFavoriteRecipe(recipe.docId).then(() => {
-        recipe.isHearted = false;
-        this.favoriteRecipes = this.favoriteRecipes.filter(r => r.docId != recipe.docId);
-        console.log('Recipe removed from favorites:', recipe);
-        
-      }).catch(error => {
-        console.error('Error removing recipe from favorites in database:', error);
-      });
+  
+   
+  deleteHeart(item: Recipe): void {
+    const token = localStorage.getItem('token');
+    if (token) {
+      if (item.isHearted) {
+        item.isHearted = false;
+        this.updateFavorites(item, false);
+  
+        if (item.docId) {
+          this.recipesService.removeFavoriteRecipe(item.docId).then(() => {
+            console.log("delllllllllllllllll", item);
+          }).catch((error) => {
+            console.error('Error removing recipe from favorites: ', error);
+          });
+        } else {
+          console.error('Document ID is missing for recipe:', item);
+        }
+      }
     }
   }
+  
+  
+  
+  private updateFavorites(recipe: Recipe, isHearted: boolean): void {
+    const recipeId = recipe.id;
+    if (isHearted) {
+      if (!this.favorites.includes(recipeId)) {
+        this.favorites.push(recipeId);
+      }
+    } else {
+      const index = this.favorites.indexOf(recipeId);
+      if (index > -1) {
+        this.favorites.splice(index, 1);
+      }
+    }
+  }
+  
 }

@@ -37,17 +37,17 @@ export class SimpleRecipesComponent implements OnInit {
       });
     });
   }
-  
   toggleHeart(item: Recipe): void {
     const token = localStorage.getItem('token');
   
     if (token) {
-      if (!item.isHearted) { 
+      if (!item.isHearted) {
         item.isHearted = true;
         this.recipesService.saveFavoriteRecipe(item).then((docId) => {
           item.docId = docId;
           console.log('Recipe added to favorites!', item);
           this.updateFavorites(item, true);
+          console.log('Updated favorites in localStorage:', this.favorites);
         }).catch((error) => {
           console.error('Error adding recipe to favorites: ', error);
         });
@@ -56,6 +56,7 @@ export class SimpleRecipesComponent implements OnInit {
           item.isHearted = false;
           console.log('Recipe removed from favorites!', item);
           this.updateFavorites(item, false);
+          console.log('Updated favorites in localStorage:', this.favorites);
         }).catch((error) => {
           console.error('Error removing recipe from favorites: ', error);
         });
@@ -86,10 +87,6 @@ export class SimpleRecipesComponent implements OnInit {
         this.favorites.splice(index, 1);
       }
     }
-
-    localStorage.setItem('favorites', JSON.stringify(this.favorites));
-    console.log('Updated favorites in localStorage:', this.favorites);
   }
-  
   
 }

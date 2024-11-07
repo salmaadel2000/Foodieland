@@ -37,29 +37,28 @@ export class RecipesService {
     }
   }
   
-  async saveFavoriteRecipe(recipe: Recipe) {
+  async saveFavoriteRecipe(recipe: Recipe): Promise<string> {
     const userId = this.auth.currentUser?.uid;
     if (userId) {
-      const favRecipeData = { ...recipe, userId };  
+      const favRecipeData = { ...recipe, userId };
       const favRecipesCollection = collection(this.firestore, 'favRecipes');
-      console.log(favRecipeData)
-      console.log(favRecipesCollection)
+      console.log(favRecipeData);
       const docRef = await addDoc(favRecipesCollection, favRecipeData);
-      return docRef.id; 
+      return docRef.id;
     } else {
       throw new Error('User is not logged in.');
     }
   }
-
+  
   getFavoriteRecipes(): Observable<Recipe[]> {
     const userId = this.auth.currentUser?.uid;
     if (userId) {
       const favRecipesCollection = collection(this.firestore, 'favRecipes');
-      const favRecipesQuery = query(favRecipesCollection, where('userId', '==', userId)); 
-     console.log(collectionData(favRecipesQuery) as Observable<Recipe[]>)
-      return collectionData(favRecipesQuery) as Observable<Recipe[]>;
+      const favRecipesQuery = query(favRecipesCollection, where('userId', '==', userId));
+      return collectionData(favRecipesQuery, { idField: 'docId' }) as Observable<Recipe[]>;
     } else {
       throw new Error('User is not logged in.');
     }
   }
+  
 }
