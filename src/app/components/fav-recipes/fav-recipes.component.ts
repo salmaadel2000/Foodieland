@@ -51,11 +51,15 @@ export class FavRecipesComponent implements OnInit {
     if (token) {
       if (item.isHearted) {
         item.isHearted = false;
-        this.updateFavorites(item, false);
+        const storedFavorites = localStorage.getItem('favorites');
+        let favorites = storedFavorites ? JSON.parse(storedFavorites) : [];
+  
+        favorites = favorites.filter((fav: { id: number; docId: string }) => fav.id !== item.id);
+        localStorage.setItem('favorites', JSON.stringify(favorites)); 
   
         if (item.docId) {
           this.recipesService.removeFavoriteRecipe(item.docId).then(() => {
-            console.log("delllllllllllllllll", item);
+            console.log("Removed from favorites and updated localStorage:", item);
           }).catch((error) => {
             console.error('Error removing recipe from favorites: ', error);
           });
@@ -66,20 +70,5 @@ export class FavRecipesComponent implements OnInit {
     }
   }
   
-  
-  
-  private updateFavorites(recipe: Recipe, isHearted: boolean): void {
-    const recipeId = recipe.id;
-    if (isHearted) {
-      if (!this.favorites.includes(recipeId)) {
-        this.favorites.push(recipeId);
-      }
-    } else {
-      const index = this.favorites.indexOf(recipeId);
-      if (index > -1) {
-        this.favorites.splice(index, 1);
-      }
-    }
-  }
   
 }
