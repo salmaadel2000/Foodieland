@@ -45,7 +45,6 @@ export class RecipesService {
     }
   }
 
-  // Add this method to get favorite recipes
   getFavoriteRecipes(): Observable<Recipe[]> {
     const userId = this.auth.currentUser?.uid;
     if (userId) {
