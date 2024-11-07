@@ -21,31 +21,41 @@ export class SimpleRecipesComponent implements OnInit {
     private recipesService: RecipesService,
     private router: Router
   ) {}
-
   ngOnInit(): void {
-    this.recipesService.getrecipesItems().subscribe(items => {
-      this.recipesItems = items;
 
+    if (typeof window !== 'undefined' && window.localStorage) {
+
+      const storedFavorites = localStorage.getItem('favorites');
+      this.favorites = storedFavorites ? JSON.parse(storedFavorites) : [];
+    } else {
+      this.favorites = [];
+    }
+    this.recipesService.getrecipesItems().subscribe(items => {
+      this.recipesItems = items.map(item => {
+        item.isHearted = this.favorites.includes(item.id);
+        return item;
+      });
     });
   }
-
+  
   toggleHeart(item: Recipe): void {
     const token = localStorage.getItem('token');
-    if (token) {
-      item.isHearted = !item.isHearted;
   
-      if (!item.isHearted) {
+    if (token) {
+      if (!item.isHearted) { 
+        item.isHearted = true;
         this.recipesService.saveFavoriteRecipe(item).then((docId) => {
-          item.docId = docId; 
-          console.log('Recipe added to favorites!' ,item);
+          item.docId = docId;
+          console.log('Recipe added to favorites!', item);
           this.updateFavorites(item, true);
         }).catch((error) => {
           console.error('Error adding recipe to favorites: ', error);
         });
-      } else {
-        this.recipesService.removeFavoriteRecipe(item.docId!).then(() => { 
+      } else if (item.docId) {
+        this.recipesService.removeFavoriteRecipe(item.docId).then(() => {
+          item.isHearted = false;
           console.log('Recipe removed from favorites!', item);
-          this.updateFavorites(item, false); 
+          this.updateFavorites(item, false);
         }).catch((error) => {
           console.error('Error removing recipe from favorites: ', error);
         });
@@ -62,23 +72,24 @@ export class SimpleRecipesComponent implements OnInit {
     }
   }
   
-
+  
   private updateFavorites(recipe: Recipe, isHearted: boolean): void {
-    const docId = recipe.id;
-
-    if (!isHearted) {
-      if (!this.favorites.includes(docId)) {
-        this.favorites.push(docId);
+    const recipeId = recipe.id;
+  
+    if (isHearted) {
+      if (!this.favorites.includes(recipeId)) {
+        this.favorites.push(recipeId);
       }
     } else {
-
-      const index = this.favorites.indexOf(docId);
+      const index = this.favorites.indexOf(recipeId);
       if (index > -1) {
         this.favorites.splice(index, 1);
       }
     }
 
-
     localStorage.setItem('favorites', JSON.stringify(this.favorites));
+    console.log('Updated favorites in localStorage:', this.favorites);
   }
+  
+  
 }

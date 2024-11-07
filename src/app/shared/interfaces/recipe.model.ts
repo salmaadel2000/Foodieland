@@ -8,5 +8,5 @@ export interface Recipe {
   chefName: string;
   date: string;
   isHearted?: boolean; 
-  docId?: string;
+  docId: string;
 }

@@ -23,21 +23,27 @@ export class RecipesService {
     return docData(recipeDoc, { idField: 'id' }) as Observable<Recipe>;
   }
 
-  async removeFavoriteRecipe(docId: string) { 
+  async removeFavoriteRecipe(docId: string): Promise<void> { 
     const userId = this.auth.currentUser?.uid;
-    if (userId) {
-      const favRecipesCollection = collection(this.firestore, 'favRecipes');
-      const recipeDocRef = doc(favRecipesCollection, docId); 
-      return deleteDoc(recipeDocRef); 
+    if (!userId) return;
+    
+    try {
+      const docRef = doc(this.firestore, 'favRecipes', docId);
+      await deleteDoc(docRef);
+      
+      console.log('Document successfully deleted!');
+    } catch (error) {
+      console.error('Error deleting document:', error);
     }
   }
-
+  
   async saveFavoriteRecipe(recipe: Recipe) {
     const userId = this.auth.currentUser?.uid;
-  
     if (userId) {
       const favRecipeData = { ...recipe, userId };  
       const favRecipesCollection = collection(this.firestore, 'favRecipes');
+      console.log(favRecipeData)
+      console.log(favRecipesCollection)
       const docRef = await addDoc(favRecipesCollection, favRecipeData);
       return docRef.id; 
     } else {
@@ -50,6 +56,7 @@ export class RecipesService {
     if (userId) {
       const favRecipesCollection = collection(this.firestore, 'favRecipes');
       const favRecipesQuery = query(favRecipesCollection, where('userId', '==', userId)); 
+     console.log(collectionData(favRecipesQuery) as Observable<Recipe[]>)
       return collectionData(favRecipesQuery) as Observable<Recipe[]>;
     } else {
       throw new Error('User is not logged in.');

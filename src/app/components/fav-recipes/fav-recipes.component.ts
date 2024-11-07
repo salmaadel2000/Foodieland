@@ -25,6 +25,7 @@ export class FavRecipesComponent implements OnInit {
       this.isAuthenticated = !!user;
       if (this.isAuthenticated) {
         this.loadFavoriteRecipes();
+        console.log(this.loadFavoriteRecipes)
       }
       this.isLoading = false;
     });
@@ -34,38 +35,32 @@ export class FavRecipesComponent implements OnInit {
     if (this.isAuthenticated) {
       this.recipesService.getFavoriteRecipes().subscribe(
         (recipes) => {
+          console.log(recipes);
           this.favoriteRecipes = recipes;
+
+        
         },
         (error) => {
           console.error('Error loading favorite recipes:', error);
         }
       );
-    } else {
-      console.error('User is not authenticated');
-    }
+    } 
   }
 
-  removeHeart(recipe: Recipe): void {
-    if (this.isAuthenticated && !recipe.isHearted) {
-      this.recipesService.removeFavoriteRecipe(recipe.docId!).then(() => {
-        recipe.isHearted = true;
-        this.favoriteRecipes = this.favoriteRecipes.filter(r => r.docId !== recipe.docId);
-        this.updateFavorites(recipe, false);
+  async removeHeart(recipe: Recipe):Promise<void> {
+    console.log(recipe)
+    console.log(this.isAuthenticated)
+    console.log(recipe.isHearted)
+    if (this.isAuthenticated && recipe.isHearted) {
+     console.log(recipe.docId)
+     await this.recipesService.removeFavoriteRecipe(recipe.docId).then(() => {
+        recipe.isHearted = false;
+        this.favoriteRecipes = this.favoriteRecipes.filter(r => r.docId != recipe.docId);
         console.log('Recipe removed from favorites:', recipe);
+        
       }).catch(error => {
-        console.error('Error removing recipe from favorites:', error);
+        console.error('Error removing recipe from favorites in database:', error);
       });
     }
-  }
-
-  private updateFavorites(recipe: Recipe, isHearted: boolean): void {
-    const docId = recipe.id;
-    if (isHearted) {
-      const index = this.favorites.indexOf(docId);
-      if (index > -1) {
-        this.favorites.splice(index, 1);
-      }
-    }
-    localStorage.setItem('favorites', JSON.stringify(this.favorites));
   }
 }
