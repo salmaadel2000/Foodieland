@@ -4,8 +4,9 @@
 .favoriteRecipes {
     position: relative;
     background: $gradient-blue;
-    height: 100vh;
-    margin-block-end: 100px;
+    height: 100%;
+    padding-block: 30px;
+    margin-block-end: 40px;
     display: flex;
     align-items: center;
     justify-content: start;
@@ -125,24 +126,32 @@
             justify-content: space-between;
         }
 
-        .error-message {
-            color: #FF6363;
-            font-size: 20px;
-            text-align: center;
-            padding: 16px;
-            font-weight: 600;
-            background-color: rgba(255, 0, 0, 0.1);
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            transition: background-color 0.3s;
-
-            &:hover {
-                background-color: rgba(255, 0, 0, 0.2);
-            }
-        }
+       
 
     }
 }
+.short-hero {
+    height: 50vh;
+    padding-block-start: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .error-message {
+        color: #FF6363;
+        font-size: 20px;
+        text-align: center;
+        padding: 16px;
+        font-weight: 600;
+        background-color: rgba(255, 0, 0, 0.1);
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.3s;
+
+        &:hover {
+            background-color: rgba(255, 0, 0, 0.2);
+        }
+    }
+  }
 
 @media (max-width: 760px) {
     .favoriteRecipes {

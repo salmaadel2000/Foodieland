@@ -1,19 +1,13 @@
-<section class="favoriteRecipes">
+<section class="favoriteRecipes"  *ngIf="favoriteRecipes.length > 0">
   <img src="/assets/images/orange.png" class="orange bottom-orange">
   <img src="/assets/images/Photo-plate.png" class="orange right-orange">
   <img src="/assets/images/kisspng-salad.png" class="orange left-orange">
   <div class="hero-part container">
-  
-
-    <div *ngIf="favoriteRecipes.length === 0" class="alert alert-warning text-center error-message">
-      No favorite recipes found. Add some recipes to see them here!
+    <div class="row justify-content-center row-gap-3">
+          <div class="hero-part-title">
+      <h1>Favorite Recipes</h1>
+      <p>Your favorite recipes will be shown here.</p>
     </div>
-
-    <div *ngIf="favoriteRecipes.length > 0" class="row justify-content-center row-gap-3">
-      <div class="hero-part-title">
-        <h1>Favorite Recipes</h1>
-        <p>Your favorite recipes will be shown here.</p>
-      </div>
       <div *ngFor="let recipe of favoriteRecipes" class="col-md-4">
         <div class="recipe-card">
           <img [src]="recipe.image" class="card-img-top" alt="recipe image">
@@ -39,5 +33,11 @@
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="favoriteRecipes" *ngIf="favoriteRecipes.length === 0">
+  <div [ngClass]="{'short-hero container': favoriteRecipes.length === 0}">
+    <p class="text-center error-message">No favorite recipes found. Add some recipes to see them here!</p>
   </div>
 </section>
