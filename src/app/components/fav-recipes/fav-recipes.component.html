@@ -1,41 +1,43 @@
 <section class="favoriteRecipes">
-    <img src="/assets/images/orange.png" class="orange bottom-orange">
-    <img src="/assets/images/Photo-plate.png" class="orange right-orange">
-    <img src="/assets/images/kisspng-salad.png" class="orange left-orange">
-<div class="hero-part container">
-    <div class="hero-part-title">
-      <h1>Favorite Recipes</h1>
-      <p>Your favorite recipes will be shown here.</p>
-    </div>
+  <img src="/assets/images/orange.png" class="orange bottom-orange">
+  <img src="/assets/images/Photo-plate.png" class="orange right-orange">
+  <img src="/assets/images/kisspng-salad.png" class="orange left-orange">
+  <div class="hero-part container">
   
-    <div class="row justify-content-center row-gap-3">
 
-        <div  *ngFor="let recipe of favoriteRecipes" class="col-md-4 ">
-            <div class="recipe-card">
+    <div *ngIf="favoriteRecipes.length === 0" class="alert alert-warning text-center error-message">
+      No favorite recipes found. Add some recipes to see them here!
+    </div>
+
+    <div *ngIf="favoriteRecipes.length > 0" class="row justify-content-center row-gap-3">
+      <div class="hero-part-title">
+        <h1>Favorite Recipes</h1>
+        <p>Your favorite recipes will be shown here.</p>
+      </div>
+      <div *ngFor="let recipe of favoriteRecipes" class="col-md-4">
+        <div class="recipe-card">
           <img [src]="recipe.image" class="card-img-top" alt="recipe image">
           <button class="heart-btn" (click)="deleteHeart(recipe)">
             <i class="fas fa-heart" [ngStyle]="{'color': '#FF6363'}"></i>
           </button>
-          
           <div class="card-body">
             <h5 class="card-title">{{ recipe.title }}</h5>
             <div class="card-item">
               <p>{{ recipe.description }}</p>
               <div class="d-flex flex-start align-items-center text-muted">
                 <div class="me-3">
-                    <img src="assets/images/Timer.png">
-                    <p class="card-item">{{ recipe.time }}</p>
+                  <img src="assets/images/Timer.png">
+                  <p class="card-item">{{ recipe.time }}</p>
                 </div>
                 <div>
-                    <img src="assets/images/ForkKnife.png">
-                    <p class="card-item">{{ recipe.mainIngredient }}</p>
+                  <img src="assets/images/ForkKnife.png">
+                  <p class="card-item">{{ recipe.mainIngredient }}</p>
                 </div>
-            </div>
-        </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </section>
-  
+  </div>
+</section>

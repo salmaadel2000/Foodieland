@@ -204,3 +204,14 @@
         }
     }
 }
+
+@media (max-width: 420px) {
+  
+    .canCheif{
+        .imgPart{
+            .food{
+              display: none;
+            }
+        }
+    }
+}

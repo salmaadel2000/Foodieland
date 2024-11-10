@@ -48,7 +48,7 @@
                 width: 100%;
                 object-fit: cover;
                 height: 100%;
-   
+
             }
         }
 
@@ -148,6 +148,7 @@
         }
 
     }
+
     .error-message {
         color: #FF6363;
         font-size: 20px;
@@ -173,19 +174,40 @@
             width: 100%;
 
             .other-title {
-                margin-block: 15px
+                margin-block-end: 15px
             }
 
 
             .other-main {
                 .other-item {
                     justify-content: flex-start;
+                    margin-block-end: 10px;
+                    flex-direction: column;
+                    align-items: flex-start;
+
+                    img {
+                        width: 100%;
+                        object-fit: cover;
+                    }
                 }
             }
-            .main-img{
+
+            .main-img {
                 display: none;
             }
         }
-     
+
+        .search-container {
+            margin-block-end: 20px;
+            margin-block-start: 20px;
+        }
+        
+    .pagination {
+        margin-block-start: 20px;
+        .page-item {
+            margin-inline-end: 10px;
+        }
+    }
+
     }
 }

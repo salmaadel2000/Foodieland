@@ -43,8 +43,10 @@
         button {
             @include main-btn;
             position: absolute;
-            top: 6px;
-            right: 17px;
+            top: 7.5px;
+            right: 7px;
+            padding: 15px 34px;
+        
         }
     }
 
